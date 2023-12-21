@@ -20,6 +20,7 @@ def __apply_Xcode_14_3_RC_post_install_workaround(installer)
   end
 
 target 'CoachPlus' do
+  pod 'ffmpeg-kit-react-native', :subspecs => ['https-gpl'], :podspec => '../node_modules/ffmpeg-kit-react-native/ffmpeg-kit-react-native.podspec'
   config = use_native_modules!
   use_react_native!(
     :path => config[:reactNativePath],

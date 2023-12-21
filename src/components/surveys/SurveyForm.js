@@ -410,7 +410,6 @@ const SurveyForm = ({
                     containerStyle={styles.submitBtn}
                     showSpinner={loadingProgress}
                     icon={'checkmark-outline'}
-                    disabled={loadingProgress}
                 />
                 <CustomButton
                     onPress={handleBack}

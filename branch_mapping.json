@@ -1,0 +1,10 @@
+[
+    {
+        "branch": "vtprogram",
+        "iosXcodeProj": "VTProgram.xcodeproj"
+    },
+    {
+        "branch": "mamba",
+        "iosXcodeProj": "Mamba.xcodeproj"
+    }
+]

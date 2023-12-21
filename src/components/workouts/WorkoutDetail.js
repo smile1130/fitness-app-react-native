@@ -28,7 +28,8 @@ class WorkoutDetail extends PureComponent {
         this.state = {
             workout: null,
             isTimerModalVisible: false,
-            showWorkoutCompleted: false
+            showWorkoutCompleted: false,
+            isLoadingWorkoutCompleted: false
         };
 
         this.preRenderRefreshControl = this.renderRefreshControl();
@@ -116,9 +117,7 @@ class WorkoutDetail extends PureComponent {
         });
 
         // Go back
-        setTimeout(() => {
-            this.handleBack();
-        }, 1500);
+        this.handleBack();
     }
 
     removeAllWeightsStored = () => {
@@ -137,11 +136,19 @@ class WorkoutDetail extends PureComponent {
             feedback
         };
 
+        this.setState({
+            isLoadingWorkoutCompleted: true
+        });
+
         WorkoutService.markWorkoutCompleted(workoutId, data)
         .then(data => {
             this.removeAllWeightsStored();
             this.showSuccessMessage(data.message);
-        }).catch();
+        }).finally(() => {
+            this.setState({
+                isLoadingWorkoutCompleted: false
+            });
+        });
     }
 
     handleBack = () => {
@@ -312,6 +319,7 @@ class WorkoutDetail extends PureComponent {
             <WorkoutTime
                 workout={this.state.workout}
                 showWorkoutCompleted={this.state.showWorkoutCompleted}
+                isLoadingWorkoutCompleted={this.state.isLoadingWorkoutCompleted}
                 handleSave={this.handleMarkWorkoutCompleted}
             />
         )

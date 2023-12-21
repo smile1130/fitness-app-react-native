@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.7.1)
   - BEMCheckBox (1.4.1)
   - boost (1.76.0)
   - BVLinearGradient (2.6.2):
@@ -14,12 +13,9 @@ PODS:
     - React-Core (= 0.70.6)
     - React-jsi (= 0.70.6)
     - ReactCommon/turbomodule/core (= 0.70.6)
-  - ffmpeg-kit-ios-https (6.0)
-  - ffmpeg-kit-react-native (6.0.2):
-    - ffmpeg-kit-react-native/https (= 6.0.2)
-    - React-Core
-  - ffmpeg-kit-react-native/https (6.0.2):
-    - ffmpeg-kit-ios-https (= 6.0)
+  - ffmpeg-kit-ios-https-gpl (6.0)
+  - ffmpeg-kit-react-native/https-gpl (6.0.2):
+    - ffmpeg-kit-ios-https-gpl (= 6.0)
     - React-Core
   - Flipper (0.125.0):
     - Flipper-Folly (~> 2.6)
@@ -84,7 +80,6 @@ PODS:
     - FlipperKit/FlipperKitNetworkPlugin
   - fmt (6.2.1)
   - glog (0.3.5)
-  - GrowingTextView (0.7.2)
   - hermes-engine (0.70.6)
   - libevent (2.1.12)
   - libwebp (1.2.4):
@@ -96,11 +91,6 @@ PODS:
   - libwebp/mux (1.2.4):
     - libwebp/demux
   - libwebp/webp (1.2.4)
-  - MBProgressHUD (1.2.0)
-  - NextLevelSessionExporter (0.4.6)
-  - NVActivityIndicatorView (5.1.1):
-    - NVActivityIndicatorView/Base (= 5.1.1)
-  - NVActivityIndicatorView/Base (5.1.1)
   - OneSignal (3.12.5):
     - OneSignal/OneSignalCore (= 3.12.5)
     - OneSignal/OneSignalExtension (= 3.12.5)
@@ -144,7 +134,6 @@ PODS:
     - FBLazyVector (= 0.70.6)
     - RCTRequired (= 0.70.6)
     - React-Core (= 0.70.6)
-  - ReachabilitySwift (5.0.0)
   - React (0.70.6):
     - React-Core (= 0.70.6)
     - React-Core/DevSupport (= 0.70.6)
@@ -353,9 +342,6 @@ PODS:
     - React
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-compressor (1.8.12):
-    - NextLevelSessionExporter
-    - React-Core
   - react-native-document-picker (3.5.4):
     - React
   - react-native-keep-awake (4.0.0):
@@ -371,6 +357,8 @@ PODS:
     - React
   - react-native-slider (4.4.2):
     - React-Core
+  - react-native-spinkit (1.4.1):
+    - React
   - react-native-splash-screen (3.3.0):
     - React-Core
   - react-native-video (5.2.1):
@@ -502,13 +490,12 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
-  - Alamofire
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
-  - ffmpeg-kit-react-native (from `../node_modules/ffmpeg-kit-react-native`)
+  - ffmpeg-kit-react-native/https-gpl (from `../node_modules/ffmpeg-kit-react-native/ffmpeg-kit-react-native.podspec`)
   - Flipper (= 0.125.0)
   - Flipper-Boost-iOSX (= 1.76.0.1.11)
   - Flipper-DoubleConversion (= 3.2.0.1)
@@ -531,17 +518,13 @@ DEPENDENCIES:
   - FlipperKit/FlipperKitUserDefaultsPlugin (= 0.125.0)
   - FlipperKit/SKIOSNetworkPlugin (= 0.125.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - GrowingTextView
   - hermes-engine (from `../node_modules/react-native/sdks/hermes/hermes-engine.podspec`)
   - libevent (~> 2.1.12)
-  - MBProgressHUD
-  - NVActivityIndicatorView
   - OneSignal (< 4.0, >= 3.0)
   - OpenSSL-Universal (= 1.1.1100)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
-  - ReachabilitySwift
   - React (from `../node_modules/react-native/`)
   - React-bridging (from `../node_modules/react-native/ReactCommon`)
   - React-callinvoker (from `../node_modules/react-native/ReactCommon/callinvoker`)
@@ -558,7 +541,6 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-audio-ducking (from `../node_modules/react-native-audio-ducking`)
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
-  - react-native-compressor (from `../node_modules/react-native-compressor`)
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-keep-awake (from `../node_modules/react-native-keep-awake`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
@@ -566,6 +548,7 @@ DEPENDENCIES:
   - react-native-render-html (from `../node_modules/react-native-render-html`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
+  - react-native-spinkit (from `../node_modules/react-native-spinkit`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-video (from `../node_modules/react-native-video`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -596,15 +579,13 @@ DEPENDENCIES:
   - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
-  - SDWebImage
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - BEMCheckBox
     - CocoaAsyncSocket
-    - ffmpeg-kit-ios-https
+    - ffmpeg-kit-ios-https-gpl
     - Flipper
     - Flipper-Boost-iOSX
     - Flipper-DoubleConversion
@@ -615,16 +596,11 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - fmt
-    - GrowingTextView
     - libevent
     - libwebp
-    - MBProgressHUD
-    - NextLevelSessionExporter
-    - NVActivityIndicatorView
     - OneSignal
     - OneSignalXCFramework
     - OpenSSL-Universal
-    - ReachabilitySwift
     - SDWebImage
     - SDWebImageWebPCoder
     - SocketRocket
@@ -643,7 +619,7 @@ EXTERNAL SOURCES:
   FBReactNativeSpec:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   ffmpeg-kit-react-native:
-    :path: "../node_modules/ffmpeg-kit-react-native"
+    :podspec: "../node_modules/ffmpeg-kit-react-native/ffmpeg-kit-react-native.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   hermes-engine:
@@ -682,8 +658,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-audio-ducking"
   react-native-background-timer:
     :path: "../node_modules/react-native-background-timer"
-  react-native-compressor:
-    :path: "../node_modules/react-native-compressor"
   react-native-document-picker:
     :path: "../node_modules/react-native-document-picker"
   react-native-keep-awake:
@@ -698,6 +672,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-slider:
     :path: "../node_modules/@react-native-community/slider"
+  react-native-spinkit:
+    :path: "../node_modules/react-native-spinkit"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
   react-native-video:
@@ -762,7 +738,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
@@ -770,7 +745,7 @@ SPEC CHECKSUMS:
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 48289402952f4f7a4e235de70a9a590aa0b79ef4
   FBReactNativeSpec: dd1186fd05255e3457baa2f4ca65e94c2cd1e3ac
-  ffmpeg-kit-ios-https: f9c838aa5400a6c5ba12324c6b798f52197ba354
+  ffmpeg-kit-ios-https-gpl: 0caef23dca1bdb18fe6f2e1cd43d02d5978c4c2e
   ffmpeg-kit-react-native: b41ac4beec275218be2d1ddb51f7952334352b73
   Flipper: 26fc4b7382499f1281eb8cb921e5c3ad6de91fe0
   Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
@@ -783,20 +758,15 @@ SPEC CHECKSUMS:
   FlipperKit: cbdee19bdd4e7f05472a66ce290f1b729ba3cb86
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
-  GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
   hermes-engine: 2af7b7a59128f250adfd86f15aa1d5a2ecd39995
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
-  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  NextLevelSessionExporter: 4d8aa5e617f1c709724f2453efe5d4628480f65a
-  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   OneSignal: 36f1f46ea4be161a5c00ed0af63f8d31653f0c1d
   OneSignalXCFramework: 81ceac017a290f23793443323090cfbe888f74ea
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 0080d0a6ebf2577475bda044aa59e2ca1f909cda
   RCTRequired: e1866f61af7049eb3d8e08e8b133abd38bc1ca7a
   RCTTypeSafety: 27c2ac1b00609a432ced1ae701247593f07f901e
-  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   React: bb3e06418d2cc48a84f9666a576c7b38e89cd7db
   React-bridging: 572502ec59c9de30309afdc4932e278214288913
   React-callinvoker: 6b708b79c69f3359d42f1abb4663f620dbd4dadf
@@ -811,7 +781,6 @@ SPEC CHECKSUMS:
   React-logger: 1623c216abaa88974afce404dc8f479406bbc3a0
   react-native-audio-ducking: 6e3187ccee302a38db8a38bf4cee044995afca20
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-compressor: d91f39a2d09df601327c8429b623ddd5529cc4e5
   react-native-document-picker: c5752781fbc0c126c627c1549b037c139444a4cf
   react-native-keep-awake: eba3137546b10003361b37c761f6c429b59814ae
   react-native-netinfo: 52cf0ee8342548a485e28f4b09e56b477567244d
@@ -819,6 +788,7 @@ SPEC CHECKSUMS:
   react-native-render-html: 984dfe2294163d04bf5fe25d7c9f122e60e05ebe
   react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
   react-native-slider: a8cd117608235cf411dd507929ed589a89320b47
+  react-native-spinkit: da294fd828216ad211fe36a5c14c1e09f09e62db
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   react-native-video: 79a186e378d327b6c08bc3982c17ef455c6bd75c
   React-perflogger: 8c79399b0500a30ee8152d0f9f11beae7fc36595
@@ -856,6 +826,6 @@ SPEC CHECKSUMS:
   Yoga: 99caf8d5ab45e9d637ee6e0174ec16fbbb01bcfc
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 2f370d6fccd2aac6a10c11cb0866946c20f86853
+PODFILE CHECKSUM: 36c64007c7197392644f7ee61699ce6ebc3227be
 
 COCOAPODS: 1.12.1

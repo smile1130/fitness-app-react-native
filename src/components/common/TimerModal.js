@@ -163,7 +163,7 @@ const TimerModal = (props) => {
             formattedTime = `${minutes}:${seconds}`;
         }
 
-        if(remainingTime == 3){
+        if(remainingTime == 3 && audioOn){
             initSound();
         }
 

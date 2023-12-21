@@ -1,0 +1,36 @@
+# Fastfile
+
+default_platform(:android)
+
+platform :ios do
+  # Configuration for iOS builds
+end
+
+platform :android do
+  # Configuration for Android builds
+
+  # Define a lane for uploading the build to the Google Play Store
+  lane :submit_playstore do
+    # Build the Android app using Gradle
+    gradient(
+      task: 'assemble',
+      build_type: 'Release'
+    )
+
+    # Upload the Android app to the Google Play Store
+    upload_to_play_store(
+      # Service Account Json file
+      json_key: "/tmp/service_account.json",
+
+      # To update all app tracks
+      track: 'production',
+
+      # Path to the aab release build
+      package_name: "com.coachplus.app",
+      aab: "./app/build/outputs/bundle/release/app-release.aab",
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+end

@@ -20,6 +20,7 @@ import { scale } from 'react-native-size-matters';
 const WorkoutTime = ({
     workout,
     showWorkoutCompleted,
+    isLoadingWorkoutCompleted,
     handleSave
 }) => {
     const [workoutStartDate, setWorkoutStartDate] = useState(null);
@@ -282,6 +283,7 @@ const WorkoutTime = ({
                     minimumValue={0}
                     maximumValue={4}
                     minimumTrackTintColor={mainColor}
+                    thumbTintColor={mainColor}
                     step={1}
                     onValueChange={value => setFeedback(value)}
                 />
@@ -317,6 +319,7 @@ const WorkoutTime = ({
                         text={Strings.label_save}
                         icon={'checkmark-outline'}
                         containerStyle={styles.saveButton}
+                        showSpinner={isLoadingWorkoutCompleted}
                     />
                 </View>
             </View>

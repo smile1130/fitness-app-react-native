@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Video } from 'react-native-compressor';
 import ImagePicker from 'react-native-image-crop-picker';
 import { Strings } from '../../config/Strings';
 import {
@@ -15,7 +14,7 @@ import { CommonStyles } from '../../styles/CommonStyles';
 import { Spinner } from './Spinner';
 import { ScaledSheet } from 'react-native-size-matters';
 import VideoTrimmer from '../../components/media/VideoTrimmer';
-import { Modal, Platform } from 'react-native';
+import { Modal } from 'react-native';
 
 const UploadMedias = ({
 	handleFileChange,
@@ -70,7 +69,6 @@ const UploadMedias = ({
 	};
 
 	const handleLibrary = () => {
-		console.log("document")
 		ImagePicker.openPicker({
 			mediaType,
 			includeBase64: false,
@@ -100,7 +98,6 @@ const UploadMedias = ({
 	};
 
 	const handleMedia = async data => {
-		console.log(data);
 		const isImage = data.mime.includes('image');
 
 		if (isImage) {
@@ -122,15 +119,14 @@ const UploadMedias = ({
 
 			handleFileChange(params);
 		} else {
-			console.log('handlemedia');
 			setVideoData(data);
 			setIsOpenVideoTrimmer(true);
 		}
 	};
 
 	const handleVideo = async data => {
-		// showFlashMessage();
 		const filename = getFileNameFromUrl(data.localPath);
+
 		const params = {
 			type: 'video',
 			filename,
@@ -143,6 +139,11 @@ const UploadMedias = ({
 				type: data.mime,
 			},
 		};
+
+		if (isAndroid) {
+			params['file']['uri'] = 'file://' + params['file']['uri'];
+		}
+
 		handleFileChange(params);
 	};
 
@@ -159,11 +160,11 @@ const UploadMedias = ({
 
 	let options = [];
 
-	if (!hideDocument) {
+	if (!hideCamera) {
 		options.push({
-			key: 'document',
-			icon: 'document-outline',
-			text: Strings.label_document,
+			key: 'camera',
+			icon: 'camera-outline',
+			text: Strings.label_camera,
 		});
 	}
 
@@ -175,11 +176,11 @@ const UploadMedias = ({
 		});
 	}
 
-	if (!hideCamera) {
+	if (!hideDocument) {
 		options.push({
-			key: 'camera',
-			icon: 'camera-outline',
-			text: Strings.label_camera,
+			key: 'document',
+			icon: 'document-outline',
+			text: Strings.label_document,
 		});
 	}
 
@@ -193,7 +194,7 @@ const UploadMedias = ({
 					handlePress={value => handlePressPopupMenu(value)}
 				/>
 			) : (
-				<Modal style={{ flex: 1, zIndex: 231465 }}>
+				<Modal animationType="slide" style={{ flex: 1 }}>
 					<VideoTrimmer
 						source={videoData}
 						handleVideo={handleVideo}

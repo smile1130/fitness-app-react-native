@@ -1,0 +1,46 @@
+image: androidsdk/android-30
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Create keystore and API key
+          script:
+            # create the keystore file and the google play api key file
+            - mkdir keys
+            - echo $KEYSTORE_FILE | base64 --decode > keys/$KEYSTORE_FILE
+            - echo $PLAY_STORE_JSON_KEY | base64 --decode > keys/$GOOGLE_PLAY_API_KEY
+          artifacts:
+            - keys/**
+      - parallel:
+          - step:
+              name: Run unit tests
+              caches:
+                - gradle
+              script:
+                - export GRADLE_OPTS='-XX:+UseG1GC -XX:MaxGCPauseMillis=1000 -Dorg.gradle.jvmargs="-Xmx2048m -XX:MaxPermSize=1024m -XX:ReservedCodeCacheSize=440m -XX:+UseCompressedOops -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8" -Dorg.gradle.parallel=false -Dorg.gradle.daemon=false -Dorg.gradle.configureondemand=true'
+                - './gradlew -PKEYSTORE_FILE=../keys/$PLAY_STORE_JSON_KEY
+                  -PKEYSTORE_PASSWORD=$KEYSTORE_FILE
+                  -PKEY_ALIAS=$KEYSTORE_ALIAS
+                  -PKEY_PASSWORD=$KEYSTORE_PASS
+                  -PGOOGLE_PLAY_API_KEY=../keys/$GOOGLE_PLAY_API_KEY
+                  test'
+              artifacts:
+                - app/build/outputs/**
+                - app/build/reports/**
+          - step:
+              name: Build & deploy
+              caches:
+                - gradle
+              script:
+                # publish the aab file to the internal testing channel
+                - export GRADLE_OPTS='-XX:+UseG1GC -XX:MaxGCPauseMillis=1000 -Dorg.gradle.jvmargs="-Xmx2048m -XX:MaxPermSize=1024m -XX:ReservedCodeCacheSize=440m -XX:+UseCompressedOops -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8" -Dorg.gradle.parallel=false -Dorg.gradle.daemon=false -Dorg.gradle.configureondemand=true'
+                - './gradlew -PKEYSTORE_FILE=../keys/$PLAY_STORE_JSON_KEY
+                  -PKEYSTORE_PASSWORD=$KEYSTORE_FILE
+                  -PKEY_ALIAS=$KEYSTORE_ALIAS
+                  -PKEY_PASSWORD=$KEYSTORE_PASS
+                  -PGOOGLE_PLAY_API_KEY=../keys/$GOOGLE_PLAY_API_KEY
+                  -PBUILD_NUMBER=$BITBUCKET_BUILD_NUMBER
+                  clean :app:publishFreeReleaseBundle :app:publishProReleaseBundle'
+              artifacts:
+                - app/build/outputs/

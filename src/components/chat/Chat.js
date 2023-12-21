@@ -334,8 +334,6 @@ class Chat extends AppStateAwareComponent {
 			conversationId: this.state.conversationId
 		};
 
-		console.log("1111111111111111111111", new_params)
-
 		if (isText) {
 			this.senderRef.current.clearInput();
 		}

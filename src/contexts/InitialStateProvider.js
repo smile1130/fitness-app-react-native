@@ -57,7 +57,11 @@ class InitialStateProvider extends PureComponent {
 
         if (this.isLoggedIn !== isNowLoggedIn) {
             this.isLoggedIn = isNowLoggedIn;
-            this.setupInitialState();
+            
+            // Trick to refresh the app
+            setTimeout(() => {
+                this.setupInitialState();
+            }, 100);
         }
     }
 

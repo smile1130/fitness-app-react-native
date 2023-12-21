@@ -25,6 +25,7 @@ class MealPlan extends PureComponent {
         this.state = {
             meal_plan: null,
             meal_note: null,
+            meal_image: null,
             hide_macros: false
         };
     }
@@ -50,7 +51,8 @@ class MealPlan extends PureComponent {
 
     handleMealNote = () => {
         this.props.navigation.navigate('MealPlanInfo', {
-            info: this.state.meal_note
+            info: this.state.meal_note,
+            mealImage: this.state.meal_image
         });
     }
 
@@ -62,6 +64,7 @@ class MealPlan extends PureComponent {
             this.setState({
                 meal_plan: data.mealPlan,
                 meal_note: data.mealNote,
+                meal_image: data.mealImage,
                 hide_macros: data.hideMacros
             });
         }).catch();
@@ -77,7 +80,7 @@ class MealPlan extends PureComponent {
     }
 
     renderInfo = () => {
-        if (!this.state.meal_note) {
+        if (!this.state.meal_note && !this.state.meal_image) {
             return null;
         }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, ActivityIndicator, Animated, Easing } from 'react-native';
+import { TouchableOpacity, Text, ActivityIndicator, Animated } from 'react-native';
 import { scale, ScaledSheet } from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -73,14 +73,17 @@ const CustomButton = ({
         transform: [{ scale: animatedValue }],
     };
 
+    const isDisabled = disabled || showSpinner;
+    const disabledStyle = isDisabled ? style.disabledStyle : null;
+
     return (
         <TouchableOpacity
             onPress={onPress}
             onPressIn={handlePressIn}
             onPressOut={handlePressOut}
             activeOpacity={0.9}
-            disabled={disabled || false}
-            style={[buttonStyle, animatedScaleStyle]}
+            disabled={isDisabled || false}
+            style={[buttonStyle, animatedScaleStyle, disabledStyle]}
         >
             <Text style={buttonTextStyles}>{text}</Text>
             {showSpinner && <ActivityIndicator size={'small'} color={white} style={style.indicator} />}
@@ -146,6 +149,9 @@ const style = ScaledSheet.create({
         backgroundColor: white,
         borderWidth: '1@s',
         borderColor: white
+    },
+    disabledStyle: {
+        opacity: 0.7
     }
 });
 

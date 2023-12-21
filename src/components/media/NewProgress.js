@@ -222,7 +222,6 @@ class NewProgress extends PureComponent {
                             text={Strings.label_load_progress}
                             containerStyle={styles.saveBtn}
                             showSpinner={this.state.loadingProgress}
-                            disabled={this.state.loadingProgress}
                         />
                     </View>
                 </ScrollView>

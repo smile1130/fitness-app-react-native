@@ -4931,7 +4931,7 @@ lodash.truncate@^4.4.2:
 
 lodash@^4.17.10, lodash@^4.17.13, lodash@^4.17.15, lodash@^4.7.0:
   version "4.17.21"
-  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^4.1.0:
@@ -5987,7 +5987,7 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@*, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@*, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -6125,11 +6125,6 @@ react-native-codegen@^0.70.6:
     flow-parser "^0.121.0"
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
-
-react-native-compressor@^1.8.5:
-  version "1.8.12"
-  resolved "https://registry.yarnpkg.com/react-native-compressor/-/react-native-compressor-1.8.12.tgz#6e50247d3d2a12845eb27cfa983ef4c56a00738f"
-  integrity sha512-KyS9hk2LnWiuZyqQcUrQv38kW0R9C8B9FLTc4ML3S9MglXhzbarfBMECxc+23GR7r/NkImMzQc0j9mgIDtRp9A==
 
 react-native-countdown-circle-timer@^3.0.9:
   version "3.1.0"
@@ -6308,6 +6303,13 @@ react-native-sound@^0.11.2:
   version "0.11.2"
   resolved "https://registry.npmjs.org/react-native-sound/-/react-native-sound-0.11.2.tgz"
   integrity sha512-LmGc8lgOK3qecYMVQpyHvww/C+wgT6sWeMpVbOe4NCRGC2yKd4fo4U0KBUo9PO7AqKESO3I/2GZg1/C0+bwiiA==
+
+react-native-spinkit@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-spinkit/-/react-native-spinkit-1.5.1.tgz#5b770ce93e1f892b3d1983fd3ce2d7375335eb6b"
+  integrity sha512-XkTgP4e+/MZpbI1GdZTIEQ+6WeMWQT4duWnSiXaaVW7py0rtaBLswtAEA6uXQGUhnxMnPWZhbLz7QponpH3ciQ==
+  dependencies:
+    prop-types "^15.5.8"
 
 react-native-splash-screen@^3.2.0:
   version "3.3.0"
